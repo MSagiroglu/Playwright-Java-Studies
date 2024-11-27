@@ -1,11 +1,11 @@
-package org.example;
+package Lessons.Lesson_01_Go_To_URL;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 
-public class Main {
+public class Go_To_URL {
     static Playwright pw;
     static Browser browser;
     static Page page;
@@ -36,12 +36,14 @@ public class Main {
         browser = browserType.launch(new BrowserType.LaunchOptions().setHeadless(false));
         page = browser.newPage();
         page.navigate(pageUrl);
+        // Go to the page methodu, linki alıp browsera göndermek için kullanılır.
     }
 
     public static void close() {
         page.close();
         browser.close();
         pw.close();
+        // Close the browser and Playwright methodu, browser ve Playwright'u kapatmak için kullanılır.'
 
     }
 }

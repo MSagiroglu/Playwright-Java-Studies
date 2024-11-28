@@ -1,15 +1,18 @@
-package Lessons.Lesson_02;
+package Lessons.Lesson_02_Login;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.assertions.PlaywrightAssertions;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import java.util.regex.Pattern;
 
-public class Login_Logout {
-    public static void main(String[] args) {
+public class Login_Logout_2 {
+    @Test
+    public void loginLogout() {
         Browser browser=null;
         Page page=null;
         try {
@@ -18,9 +21,9 @@ public class Login_Logout {
             page.navigate("https://freelance-learn-automation.vercel.app/login");
             ;
             String title = page.title();
-            PlaywrightAssertions.assertThat(page).hasTitle(title);
+            Assert.assertTrue(page.title().contains("Learn Automation"));
             System.out.println("title = " + title);
-           // page.locator("#email1").fill("admin@email.com");
+            // page.locator("#email1").fill("admin@email.com");
             //page.locator("xpath=//input[@id='email1']").fill("admin@email.com");
             //page.locator("css=input[id='email1']").fill("admin@email.com");
             page.getByPlaceholder("Enter Email").fill("admin@email.com");
@@ -38,7 +41,9 @@ public class Login_Logout {
             browser.close();
         }
 
+    }
+
+
 
     }
 
-}
